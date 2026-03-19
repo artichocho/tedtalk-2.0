@@ -5,11 +5,11 @@
 
     <header class="sticky top-0 z-40 border-b border-white/10 bg-slate-950/85 backdrop-blur">
         <div class="mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-4 py-4 sm:px-6">
-            <a href="{{ nav.home }}" class="justify-self-start font-semibold tracking-wide">
+            <a href="{{ nav.home }}" class="col-start-1 row-start-1 justify-self-start font-semibold tracking-wide">
                 <span class="text-tedred">TED</span>x
                 <span class="text-slate-300">{{ content.brand|replace({'TEDx': ''}) }}</span>
             </a>
-            <nav class="hidden items-center justify-center gap-5 text-sm text-slate-300 md:flex">
+            <nav class="col-start-2 row-start-1 hidden items-center justify-center gap-5 justify-self-center text-sm text-slate-300 md:flex" aria-label="Navigation principale">
                 <a class="hover:text-white" href="{{ nav.home }}">{{ content.nav_labels[0] }}</a>
                 <a class="hover:text-white" href="{{ nav.speaker }}">{{ content.nav_labels[1] }}</a>
                 <a class="hover:text-white" href="{{ nav.schedule }}">{{ content.nav_labels[2] }}</a>
@@ -17,7 +17,21 @@
                 <a class="hover:text-white" href="{{ nav.stats }}">{{ content.nav_labels[4] }}</a>
                 <a class="hover:text-white" href="{{ nav.about }}">{{ content.nav_labels[5] }}</a>
             </nav>
-            <div class="justify-self-end"></div>
+            <div class="col-start-3 row-start-1 justify-self-end">
+                <button type="button" id="nav-toggle" class="inline-flex items-center justify-center rounded-lg border border-white/15 bg-slate-900/80 p-2 text-slate-300 hover:border-white/30 hover:text-white md:hidden" aria-expanded="false" aria-controls="nav-mobile" aria-label="Ouvrir le menu">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="nav-mobile" class="mx-auto hidden w-full max-w-6xl flex-col gap-1 border-t border-white/10 bg-slate-950/95 px-4 py-3 text-sm text-slate-300 backdrop-blur sm:px-6 md:hidden" aria-label="Navigation principale">
+            <a class="rounded-lg px-3 py-2.5 hover:bg-white/5 hover:text-white" href="{{ nav.home }}">{{ content.nav_labels[0] }}</a>
+            <a class="rounded-lg px-3 py-2.5 hover:bg-white/5 hover:text-white" href="{{ nav.speaker }}">{{ content.nav_labels[1] }}</a>
+            <a class="rounded-lg px-3 py-2.5 hover:bg-white/5 hover:text-white" href="{{ nav.schedule }}">{{ content.nav_labels[2] }}</a>
+            <a class="rounded-lg px-3 py-2.5 hover:bg-white/5 hover:text-white" href="{{ nav.tickets }}">{{ content.nav_labels[3] }}</a>
+            <a class="rounded-lg px-3 py-2.5 hover:bg-white/5 hover:text-white" href="{{ nav.stats }}">{{ content.nav_labels[4] }}</a>
+            <a class="rounded-lg px-3 py-2.5 hover:bg-white/5 hover:text-white" href="{{ nav.about }}">{{ content.nav_labels[5] }}</a>
         </div>
     </header>
 

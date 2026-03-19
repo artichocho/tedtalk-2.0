@@ -12,6 +12,37 @@
     legal: document.getElementById("modal-legal"),
   };
 
+  const navToggle = document.getElementById("nav-toggle");
+  const navMobile = document.getElementById("nav-mobile");
+
+  const setNavMobileOpen = (open) => {
+    if (!navMobile || !navToggle) return;
+    if (open) {
+      navMobile.classList.remove("hidden");
+      navMobile.classList.add("flex");
+      navToggle.setAttribute("aria-expanded", "true");
+      navToggle.setAttribute("aria-label", "Fermer le menu");
+    } else {
+      navMobile.classList.add("hidden");
+      navMobile.classList.remove("flex");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Ouvrir le menu");
+    }
+  };
+
+  navToggle?.addEventListener("click", () => {
+    const isOpen = navMobile && !navMobile.classList.contains("hidden");
+    setNavMobileOpen(!isOpen);
+  });
+
+  navMobile?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setNavMobileOpen(false));
+  });
+
+  window.matchMedia("(min-width: 768px)").addEventListener("change", (event) => {
+    if (event.matches) setNavMobileOpen(false);
+  });
+
   const closeAllModals = () => {
     Object.entries(modalEls).forEach(([, el]) => {
       if (!el) return;
@@ -150,6 +181,7 @@
       closeEgg();
       closeAllModals();
       closeFakeCheckout();
+      setNavMobileOpen(false);
     }
   });
 
