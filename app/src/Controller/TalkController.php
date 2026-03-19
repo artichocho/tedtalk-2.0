@@ -3,11 +3,18 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 final class TalkController extends AbstractController
 {
+    public function __construct(
+        #[Autowire('%site_base_path%')]
+        private readonly string $siteBasePath,
+    ) {
+    }
     #[Route(path: '/', name: 'talk_home')]
     public function home(): Response
     {
@@ -52,17 +59,20 @@ final class TalkController extends AbstractController
 
     private function buildView(): array
     {
+        $base = rtrim($this->siteBasePath, '/');
+        $path = fn (string $route, array $parameters = []): string => $base.$this->generateUrl($route, $parameters, UrlGeneratorInterface::ABSOLUTE_PATH);
+
         return [
             'locale' => 'fr',
             'content' => $this->content(),
             'nav' => [
-                'home' => $this->generateUrl('talk_home'),
-                'speaker' => $this->generateUrl('talk_speaker'),
-                'schedule' => $this->generateUrl('talk_schedule'),
-                'tickets' => $this->generateUrl('talk_tickets'),
-                'stats' => $this->generateUrl('talk_stats'),
-                'about' => $this->generateUrl('talk_about'),
-                'vip' => $this->generateUrl('talk_vip'),
+                'home' => $path('talk_home'),
+                'speaker' => $path('talk_speaker'),
+                'schedule' => $path('talk_schedule'),
+                'tickets' => $path('talk_tickets'),
+                'stats' => $path('talk_stats'),
+                'about' => $path('talk_about'),
+                'vip' => $path('talk_vip'),
             ],
         ];
     }

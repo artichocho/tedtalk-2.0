@@ -43,6 +43,8 @@ The workflow at `.github/workflows/deploy-pages.yml`:
 
 Enable Pages in your repository settings using **GitHub Actions** as the source.
 
+**Project site URL** (`https://user.github.io/repo-name/`) needs a path prefix. The workflow sets `SITE_BASE_PATH=/<repository-name>` during export so links and `/assets/site.js` resolve correctly. Locally, leave `SITE_BASE_PATH` empty in `app/.env` (default).
+
 ## Customize content
 
 - Templates: `app/templates/talk/`

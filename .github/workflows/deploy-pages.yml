@@ -34,6 +34,9 @@ jobs:
       - name: Export static site
         run: composer export-static
         working-directory: app
+        env:
+          # Project Pages: https://user.github.io/<repo>/
+          SITE_BASE_PATH: /${{ github.event.repository.name }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
