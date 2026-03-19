@@ -1,0 +1,31 @@
+{% extends 'talk/_shell.html.twig' %}
+
+{% block title %}{{ content.about_title }} | TEDx Satire{% endblock %}
+
+{% block page %}
+    <section class="rounded-3xl border border-white/10 bg-slate-900/65 p-6 shadow-panel sm:p-10">
+        <h1 class="inline-flex items-center gap-2 text-3xl font-bold sm:text-5xl">{{ content.about_title }}</h1>
+        <p class="mt-4 max-w-3xl text-slate-300 sm:text-lg">{{ content.about_text }}</p>
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+            <article class="rounded-xl border border-white/10 bg-slate-800/40 p-5">
+                <h2 class="inline-flex items-center gap-2 text-lg font-semibold">Pourquoi ce thème ?</h2>
+                <p class="mt-2 text-sm text-slate-300">
+                    Parce qu'un sujet intime mérite mieux que des approximations. Ici, on remplace les mythes par des mots justes.
+                </p>
+            </article>
+            <article class="rounded-xl border border-white/10 bg-slate-800/40 p-5">
+                <h2 class="inline-flex items-center gap-2 text-lg font-semibold">Notre promesse</h2>
+                <p class="mt-2 text-sm text-slate-300">
+                    Une conférence chic, un fond décalé, et des punchlines qui tombent juste... sans jamais tomber bas.
+                </p>
+            </article>
+        </div>
+
+        <article class="mt-5 rounded-xl border border-emerald-300/20 bg-emerald-950/20 p-5">
+            <h2 class="inline-flex items-center gap-2 text-lg font-semibold text-emerald-200">Éthique avant esthétique</h2>
+            <p class="mt-2 text-sm text-emerald-100/90">
+                Consentement explicite, communication continue, et pratiques de safe sex oral : on garde le sourire, mais surtout le sens des responsabilités.
+            </p>
+        </article>
+    </section>
+{% endblock %}

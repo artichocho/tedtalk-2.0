@@ -1,0 +1,20 @@
+{% extends 'talk/_shell.html.twig' %}
+
+{% block title %}Programme | TEDx Satire{% endblock %}
+
+{% block page %}
+    <section class="rounded-3xl border border-white/10 bg-slate-900/65 p-6 shadow-panel sm:p-10">
+        <h1 class="inline-flex items-center gap-2 text-3xl font-bold sm:text-5xl">Programme de la session</h1>
+        <p class="mt-3 text-slate-300">
+            Un déroulé calibré au millimètre : ici, on ne tourne pas autour du pot, on affine la méthode.
+        </p>
+        <ol class="mt-8 space-y-3">
+            {% for item in content.agenda %}
+                <li class="rounded-xl border border-white/10 bg-slate-800/40 p-4">
+                    <span class="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-tedred text-xs font-semibold text-white">{{ loop.index }}</span>
+                    <span class="text-sm sm:text-base">{{ item }}</span>
+                </li>
+            {% endfor %}
+        </ol>
+    </section>
+{% endblock %}

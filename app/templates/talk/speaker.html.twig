@@ -1,0 +1,25 @@
+{% extends 'talk/_shell.html.twig' %}
+
+{% block title %}{{ content.speaker }} | TEDx Satire{% endblock %}
+
+{% block page %}
+    <section class="rounded-3xl border border-white/10 bg-slate-900/65 p-6 shadow-panel sm:p-10">
+        <h1 class="inline-flex items-center gap-2 text-3xl font-bold sm:text-5xl">{{ content.speaker }}</h1>
+        <p class="mt-4 max-w-3xl text-slate-300 sm:text-lg">{{ content.speaker_bio }}</p>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-3">
+            <div class="rounded-xl border border-white/10 bg-slate-800/40 p-4">
+                <p class="inline-flex items-center gap-1 text-xs uppercase tracking-wide text-slate-400">Spécialité</p>
+                <p class="mt-2 text-sm">Communication intime sans langue de bois</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-slate-800/40 p-4">
+                <p class="inline-flex items-center gap-1 text-xs uppercase tracking-wide text-slate-400">Style</p>
+                <p class="mt-2 text-sm">Rigueur, humour et débit bien articulé</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-slate-800/40 p-4">
+                <p class="inline-flex items-center gap-1 text-xs uppercase tracking-wide text-slate-400">Mission</p>
+                <p class="mt-2 text-sm">Mettre les tabous en mots pour mieux les dépasser</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'talk/_shell.html.twig' %}
+
+{% block title %}Statistiques | TEDx Satire{% endblock %}
+
+{% block page %}
+    <section class="rounded-3xl border border-white/10 bg-slate-900/65 p-6 shadow-panel sm:p-10">
+        <h1 class="inline-flex items-center gap-2 text-3xl font-bold sm:text-5xl">Chiffres, courbes et langue des données</h1>
+        <p class="mt-3 text-slate-300">
+            Données entièrement inventées, rigueur visuelle totalement authentique.
+        </p>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {% for kpi in content.stats.kpis %}
+                <article class="rounded-xl border border-white/10 bg-slate-800/45 p-4">
+                    <p class="text-xs uppercase tracking-wide text-slate-400">{{ kpi.label }}</p>
+                    <p class="mt-2 text-2xl font-bold text-white">{{ kpi.value }}</p>
+                </article>
+            {% endfor %}
+        </div>
+
+        <div class="mt-8 grid gap-5 lg:grid-cols-2">
+            <article class="rounded-2xl border border-white/10 bg-slate-800/35 p-4">
+                <h2 class="inline-flex items-center gap-2 mb-3 text-lg font-semibold">Indice de satisfaction par axe</h2>
+                <canvas id="stats-radar" height="260"></canvas>
+            </article>
+            <article class="rounded-2xl border border-white/10 bg-slate-800/35 p-4">
+                <h2 class="inline-flex items-center gap-2 mb-3 text-lg font-semibold">Progression mensuelle du "Wow pédagogique"</h2>
+                <canvas id="stats-line" height="260"></canvas>
+            </article>
+            <article class="rounded-2xl border border-white/10 bg-slate-800/35 p-4">
+                <h2 class="inline-flex items-center gap-2 mb-3 text-lg font-semibold">Pratiques "safe sex oral" observées</h2>
+                <canvas id="stats-safe-bar" height="260"></canvas>
+            </article>
+            <article class="rounded-2xl border border-white/10 bg-slate-800/35 p-4">
+                <h2 class="inline-flex items-center gap-2 mb-3 text-lg font-semibold">Répartition du public (auto-déclarée)</h2>
+                <div class="mx-auto max-w-xs">
+                    <canvas id="stats-donut" height="150"></canvas>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <script id="stats-data" type="application/json">{{ content.stats|json_encode|raw }}</script>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
