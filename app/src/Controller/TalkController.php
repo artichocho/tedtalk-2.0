@@ -83,7 +83,7 @@ final class TalkController extends AbstractController
             'brand' => 'TEDxGrand Hall',
             'title' => 'L\'Art du Cunni-Linguistique',
             'subtitle' => 'Une conférence très professionnelle sur le cunnilingus : consentement, communication et précision millimétrée.',
-            'date' => '26 mars 2026',
+            'date' => '1er avril 2026',
             'location' => 'Grand Hall, Institut de l\'Innovation Prétentieuse',
             'speaker' => 'Irène Clitwell, PhD (Dynamiques intimes et rhétorique scénique)',
             'speaker_bio' => 'Experte en pédagogie sensible, elle transforme les sujets qui font rougir en idées qui font grandir.',
@@ -164,7 +164,7 @@ final class TalkController extends AbstractController
                     ['pratique' => 'Discussion préalable', 'score' => 96],
                     ['pratique' => 'Consentement verbal clair', 'score' => 99],
                     ['pratique' => 'Protection orale utilisée', 'score' => 68],
-                    ['pratique' => 'Check-in pendant l acte', 'score' => 91],
+                    ['pratique' => 'Check-in pendant l\'acte', 'score' => 91],
                     ['pratique' => 'After-care', 'score' => 88],
                 ],
                 'repartition' => [
@@ -175,7 +175,7 @@ final class TalkController extends AbstractController
                 ],
                 'kpis' => [
                     ['label' => 'Taux de sourires complices', 'value' => '92%'],
-                    ['label' => 'Niveau moyen de gêne productive', 'value' => '7.8/10'],
+                    ['label' => 'Niveau moyen de gêne engendrée', 'value' => '7.8/10'],
                     ['label' => 'Indice de "oh, c\'est logique en fait"', 'value' => '96%'],
                     ['label' => 'Décibels d\'applaudissements', 'value' => '104 dB'],
                 ],
